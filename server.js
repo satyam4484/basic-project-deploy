@@ -1,13 +1,15 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
 require('dotenv').config();
 const app = express();
 
 
-app.get('/api/user',(req,res) => {
-    res.send({name:"satyam",roll:26});
+app.get('/api/user', (req, res) => {
+    res.send({ name: "satyam", roll: 26 });
 })
 
-app.get('/api/getallname',(req,res)=> {
+app.get('/api/getallname', (req, res) => {
     res.send({
         "error": false,
         "message": "",
@@ -35,8 +37,17 @@ app.get('/api/getallname',(req,res)=> {
         ]
     })
 })
+mongoose.connect(process.env.NAME, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log("connected to mongodbserver");
+}).catch(error => {
+    console.log("something went wrong with mongodb server", error);
+});
 
-app.listen(process.env.PORT,() => {
+
+app.listen(process.env.PORT, () => {
     console.log(`listening to port ${process.env.PORT},By and name is ${process.env.NAME}`);
 })
 
