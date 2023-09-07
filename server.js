@@ -37,6 +37,6 @@ app.get('/api/getallname',(req,res)=> {
 })
 
 app.listen(process.env.PORT,() => {
-    console.log(`listening to port ${process.env.PORT},By ${process.env.NAME}`);
+    console.log(`listening to port ${process.env.PORT},By and name is ${process.env.NAME}`);
 })
 
