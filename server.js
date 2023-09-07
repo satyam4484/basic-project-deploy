@@ -37,7 +37,7 @@ app.get('/api/getallname', (req, res) => {
         ]
     })
 })
-mongoose.connect(process.env.NAME, {
+mongoose.connect("mongodb+srv://satyamdsingh123456:lTgKubEX1OOFQPzM@cluster0.szokskb.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
